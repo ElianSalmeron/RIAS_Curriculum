@@ -15,7 +15,7 @@ h1{
     background-color: #E84A5F;
     text-align: center;
     margin: 0;
-    font-size: 2.5em;
+    font-size: 2.25em;
 }
 
 h2{
@@ -26,10 +26,11 @@ h2{
 }
 
 .curriculum{
-    width: 500px;
+    width: 450px;
     border: solid 2px black;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     background-color: white
 }
 
@@ -87,10 +88,11 @@ select{
 #info-curriculum{
     /* visibility: hidden; */
     display: none;
-    width: 500px;
+    width: 450px;
     border: solid 2px black;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     background-color: white
 }
 
@@ -105,17 +107,30 @@ select{
 
 .encabezado{
     text-align: center;
-    margin: 10px 0px;
+    margin: 15px 0px;
+}
+
+img{
+    height: 230px;
+    width: 160px;
 }
 
 @media (max-width: 500px){
 
+    h1{
+        font-size: 2.1em;
+    }
+
     .curriculum{
-        width: 340px;
+        width: 345px;
+    }
+
+    #info-curriculum{
+        width: 345px;
     }
 
     .seccion{
         padding: 15px 15px;
     }
-
+    
 }
