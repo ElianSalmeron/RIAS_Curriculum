@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="CV">
+        <meta name="description" content="Formulario Curriculum">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Elian Salmerón">
+        <link rel="stylesheet" href="estilos.css">
+        <script type="text/javascript" src="validaciones.js"></script>        
+
+        <script type="text/javascript">             
+            var isCtrl = false;
+            
+            document.onkeyup = function(event){
+                if(event.keyCode == 17) isCtrl=false;
+            }
+
+            document.onkeydown = function(event){
+                if(event.keyCode == 17){ 
+                    isCtrl=true;
+                }
+                    
+                //Combinancion de teclas CTRL+C y bloquear su ejecucion en el navegador
+                if(event.keyCode == 67 && isCtrl == true){
+                    alert("La combinación CTRL + C se encuentra bloqueada");
+                    return false;
+                }
+
+                //Combinancion de teclas CTRL+V y bloquear su ejecucion en el navegador
+                if(event.keyCode == 86 && isCtrl == true){
+                    alert("La combinación CTRL + V se encuentra bloqueada");
+                    return false;
+                }
+            }
+
+            document.oncontextmenu = function(){ 
+                alert("El click derecho se encuentra deshabilitado");
+                return false; 
+            }
+            document.onselectstart = function(){ return false; }
+
+            document.onmousedown = disableclick; 
+            function disableclick(event) {
+                if(event.button == 2)
+                    return false;    
+            }
+            </script>
+
+        <title>Curriculum</title>
+    </head>
+
+    <body>
+        <h1>Curriculum</h1>
+        <div class="curriculum" id="curriculum">
+            <form id="form-curriculum">
+                <h2>Datos Personales</h2>
+                <div class="seccion">
+                    <label class="titulo">Fotografía</label>
+                    <br>
+                    <input type="file" id="foto" accept="image/png, .jpeg, .jpg, image/gif" id="foto" required>
+                    <br>
+                    <input type="text" placeholder="Nombre(s)" id="nombre" maxlength="30" required>
+                    <input type="text" placeholder="Apellido Paterno" id="apellido_paterno" maxlength="30" required>
+                    <input type="text" placeholder="Apellido Materno" id="apellido_materno" maxlength="30" required>
+                    <input type="text" placeholder="RFC" id="rfc" name="rfc" maxlength="13" required>
+                    
+                    <br>
+                    <label class="titulo">Género</label>
+                    <input type="radio" id="masculino" name="genero" value="Masculino">
+                    <label for="masculino">M</label>
+                    <input type="radio" id="femenino" name="genero" value="Femenino">
+                    <label for="femenino">F</label>
+                    <input type="radio" id="otro" name="genero" value="Otro">
+                    <label for="otro">Otro</label>
+                    <br>
+
+                    <label for="edad" class="titulo">Edad</label>
+                    <select id="edad">
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                        <option value="46">46</option>
+                        <option value="47">47</option>
+                        <option value="48">48</option>
+                        <option value="49">49</option>
+                        <option value="50">50</option>
+                        <option value="51">51</option>
+                        <option value="52">52</option>
+                        <option value="53">53</option>
+                        <option value="54">54</option>
+                        <option value="55">55</option>
+                        <option value="56">56</option>
+                        <option value="57">57</option>
+                        <option value="58">58</option>
+                        <option value="59">59</option>
+                        <option value="60">60</option>
+                        <option value="61">61</option>
+                        <option value="62">62</option>
+                        <option value="63">63</option>
+                        <option value="64">64</option>
+                        <option value="65">65</option>
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                    </select>
+                    <label for="fecha_nac" class="titulo">Fecha de nacimiento</label>
+                    <input type="date" id="fecha_nac" name="fecha_nac" required>
+                    
+                    <label class="titulo">Situación Civil</label>
+                    <label>
+                        <input type="radio" id="situacion_civil" name="situacion_civil" value="Soltero"> Soltero(a)
+                    </label>
+                    <label>
+                        <input type="radio" id="situacion_civil" name="situacion_civil" value="Casado"> Casado(a)
+                    </label>
+                    <label>
+                        <input type="radio" id="situacion_civil" name="situacion_civil" value="Viudo"> Viudo(a)
+                    </label>
+                    
+                    <input type="text" placeholder="Teléfono" id="telefono" name="telefono" pattern="[0-9]{10}" maxlength="10" required>
+                    <input type="email" placeholder="E-mail" id="correo" name="correo" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                    <input type="text" placeholder="Dirección" id="direccion" name="dirección" maxlength="30" required>
+
+                    <br>
+                    <label class="titulo">Nacionalidad</label>
+                    <label>
+                        <input type="radio" name="nacionalidad" value="Mexicana" checked> Mexicana
+                    </label>
+                    <label>
+                        <input type="radio" name="nacionalidad" value="Extranjera"> Extranjera
+                    </label>
+
+                    <br>
+                    <label class="titulo">Estado</label>
+                    <select id="estado">
+                        <option value="Jalisco">Jalisco</option>
+                        <option value="Nuevo Leon">Nuevo León</option>
+                        <option value="Oaxaca">Oaxaca</option>
+                        <option value="Veracruz">Veracruz</option>
+                        <option value="Yucatán">Yucatán</option>
+                    </select>
+
+                    <label class="titulo">Ciudad</label>
+                    <select id="ciudad">
+                        <option value="Guadalajara">Guadalajara</option>
+                        <option value="Monterrey">Monterrey</option>
+                        <option value="Ixtepec">Ixtepec</option>
+                        <option value="Córdoba">Córdoba</option>
+                        <option value="Mérida">Mérida</option>
+                    </select>
+                </div>
+
+                <br>
+                <h2>Datos Escolares</h2>
+                <div class="seccion">
+                    <label class="titulo">Grado máximo de estudios</label>
+                    <select id="grado_estudios">
+                        <option value="Doctorado">Doctorado</option>
+                        <option value="Maestria">Maestría</option>
+                        <option value="Licenciatura">Licenciatura</option>
+                        <option value="Bachillerato">Bachillerato</option>
+                        <option value="Secundaria">Secundaria</option>
+                        <option value="Primaria">Primaria</option>
+                        <option value="Sin estudios">Sin estudios</option>
+                    </select>
+                    
+                    <br>
+
+                    <label class="titulo">¿Titulado?</label>
+                    <label>
+                        <input type="radio" name="titulacion" value="Si"> Si
+                    </label>
+                    <label>
+                        <input type="radio" name="titulacion" value="No"> No
+                    </label>
+
+                    <br>
+
+                    <label class="titulo">Fecha de obtención de título</label>
+                    <input type="date" id="fecha_titulo" name="fecha_titulacion" required>
+
+                    <input type="text" placeholder="Cédula profesional" pattern="[0-9]{7}" id="cedula" name="cedula" maxlength="7" required>
+                    <input type="text" placeholder="Institución de egreso" id="institucion" name="institucion" maxlength="30" required>
+
+                    <textarea placeholder="Cursos o diplomados" id="cursos" name="cursos" maxlength="150" required></textarea>
+                </div>
+
+                <br>
+                <h2>Información Laboral</h2>
+                <div class="seccion">
+                    <label class="titulo">Información del último empleo</label>
+                    <textarea placeholder="Datos" id="datos_empleo" name="datos_empleo" maxlength="150" required></textarea>
+                    <input type="text" placeholder="Contacto" id="contacto_empleo" name="contacto_empleo" maxlength="40" required>
+                    <input type="text" placeholder="Teléfono" pattern="[0-9]{10}" id="telefono_empleo" name="telefono_empleo" maxlength="10" required>
+                    <input type="text" placeholder="Ubicación" id="ubicacion_empleo" name="ubicacion_empleo" maxlength="40" required>
+                    <textarea placeholder="Labores desempeñadas" id="labores_empleo" name="labores_empleo" maxlength="150" required></textarea>
+                    <input type="text" placeholder="Sueldo percibido" id="sueldo_empleo" name="sueldo_empleo" maxlength="20" required>
+                    <input type="text" placeholder="Tiempo laborado" id="tiempo_empleo" name="tiempo_empleo" maxlength="30" required>
+                </div>
+
+                <br>
+                <h2>Datos de Referencia</h2>
+                <div class="seccion">
+                    <textarea placeholder="Referencia 1" id="referencia1" name="referencia1" maxlength="150" required></textarea>
+                    <textarea placeholder="Referencia 2" id="referencia2" name="referencia2" maxlength="150" required></textarea>
+                </div>
+
+                <div class="botones">
+                    <input type="button" name="enviar" onclick="validaDatos();" value="Enviar Información">
+                    <input type="reset" name="reiniciar" value="Reiniciar Formulario">
+                </div>
+            </form>
+        </div>
+
+        <div id="info-curriculum">
+            
+            <h2>Datos Personales</h2>
+            <div class="seccion">
+
+                <div class="encabezado">
+                    <label class="title" id="m_nombre"></label><br>
+                </div>
+                
+                <label class="title">RFC: </label><label class="contenido" id="m_rfc"></label><br>
+                <label class="title">Género: </label><label class="contenido" id="m_genero"></label><br>
+                <label class="title">Edad: </label><label class="contenido" id="m_edad"></label><br>
+                <label class="title">Fecha de nacimiento: </label><label class="contenido" id="m_fecha_nac"></label><br>
+                <label class="title">Situación Civil: </label><label class="contenido" id="m_sit_civil"></label><br>
+                <label class="title">Teléfono: </label><label class="contenido" id="m_telefono"></label><br>
+                <label class="title">Correo: </label><label class="contenido" id="m_correo"></label><br>
+                <label class="title">Dirección: </label><label class="contenido" id="m_direccion"></label><br>
+                <label class="title">Nacionalidad: </label><label class="contenido" id="m_nac"></label><br>
+                <label class="title">Estado: </label><label class="contenido" id="m_estado"></label><br>
+                <label class="title">Ciudad: </label><label class="contenido" id="m_ciudad"></label><br>
+            </div>
+
+            <h2>Datos Escolares</h2>
+            <div class="seccion">
+                <label class="title">Grado máximo de estudios: </label><label class="contenido" id="m_grado"></label><br>
+                <label class="title">Titulado: </label><label class="contenido" id="m_titulado"></label><br>
+                <label class="title">Fecha de titulación: </label><label class="contenido" id="m_fecha_tit"></label><br>
+                <label class="title">Cédula: </label><label class="contenido" id="m_cedula"></label><br>
+                <label class="title">Institución de egreso: </label><label class="contenido" id="m_institucion"></label><br>
+                <label class="title">Cursos o diplomados: </label><label class="contenido" id="m_cursos"></label><br>
+            </div>
+
+            <h2>Información Laboral</h2>
+            <div class="seccion">
+                <label class="title">Información del último empleo</label><br><br>
+                <label class="title">Datos: </label><label class="contenido" id="m_datos_emp"></label><br>
+                <label class="title">Contacto: </label><label class="contenido" id="m_contacto_emp"></label><br>
+                <label class="title">Teléfono: </label><label class="contenido" id="m_tel_emp"></label><br>
+                <label class="title">Ubicación: </label><label class="contenido" id="m_ubicacion"></label><br>
+                <label class="title">Labores desempeñadas: </label><label class="contenido" id="m_labores"></label><br>
+                <label class="title">Sueldo percibido: </label><label class="contenido" id="m_salario"></label><br>
+                <label class="title">Tiempo laborado: </label><label class="contenido" id="m_tiempo"></label><br>
+            </div>
+
+            <h2>Datos de referencia</h2>
+            <div class="seccion">
+                <label class="title">Referencia 1</label><br><label class="contenido" id="m_ref1"></label><br><br>
+                <label class="title">Referencia 2</label><br><label class="contenido" id="m_ref2"></label>
+            </div>
+
+            <div class="botones">
+                <input type="button" name="enviar" onclick="muestraFormulario();" value="Regresar al formulario">
+            </div>
+        </div>
+    </body>
+</html>
