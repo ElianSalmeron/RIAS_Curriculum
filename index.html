@@ -21,7 +21,7 @@
                     isCtrl=true;
                 }
                     
-                //Combinancion de teclas CTRL+C y bloquear su ejecucion en el navegador
+                //Combinacion de teclas CTRL+C y bloquear su ejecucion en el navegador
                 if(event.keyCode == 67 && isCtrl == true){
                     alert("La combinación CTRL + C se encuentra bloqueada");
                     return false;
@@ -51,7 +51,7 @@
     </head>
 
     <body>
-        <h1>Curriculum</h1>
+        <h1>Curriculum</h1><br>
         <div class="curriculum" id="curriculum">
             <form id="form-curriculum">
                 <h2>Datos Personales</h2>
@@ -131,10 +131,12 @@
                         <option value="69">69</option>
                         <option value="70">70</option>
                     </select>
+                    <br>
                     <label for="fecha_nac" class="titulo">Fecha de nacimiento</label>
                     <input type="date" id="fecha_nac" name="fecha_nac" required>
                     
-                    <label class="titulo">Situación Civil</label>
+                    <br>
+                    <label class="titulo">Situación Civil</label><br>
                     <label>
                         <input type="radio" id="situacion_civil" name="situacion_civil" value="Soltero"> Soltero(a)
                     </label>
