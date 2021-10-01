@@ -38,6 +38,11 @@ h2{
     padding: 15px 35px;
 }
 
+.cont{
+    padding: 15px 35px;
+    text-align: center;
+}
+
 .botones{
     text-align: center;
     padding: 15px 0px;
@@ -110,7 +115,7 @@ select{
     margin: 15px 0px;
 }
 
-img{
+.foto-curric{
     height: 230px;
     width: 160px;
 }
@@ -132,5 +137,8 @@ img{
     .seccion{
         padding: 15px 15px;
     }
-    
+
+    .cont{
+        padding: 15px 15px;
+    }
 }
