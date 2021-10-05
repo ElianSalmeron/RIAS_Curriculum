@@ -107,12 +107,27 @@ function validaDatos(){
 
     if(document.getElementById("fecha_nac").value != ""){
         var fecha_nac = new Date(document.getElementById("fecha_nac").value);
-    
-        if(!(fecha_nac.getFullYear() <= fecha_actual.getFullYear() && fecha_nac.getMonth() <= fecha_actual.getMonth() &&
-        fecha_nac.getDate() +1 < fecha_actual.getDate())){
-            document.getElementById("fecha_nac").focus();
+        console.log(fecha_actual.getFullYear()+" "+fecha_actual.getMonth()+" "+fecha_actual.getDate());
+        console.log(fecha_nac.getFullYear()+" "+fecha_nac.getMonth()+" "+fecha_nac.getDate());
+
+        if(fecha_nac.getFullYear() > fecha_actual.getFullYear()){
             alert("La fecha de nacimiento debe ser menor a la fecha actual");
             return false;
+        }
+        
+        if(fecha_nac.getFullYear() == fecha_actual.getFullYear()){
+
+            if(fecha_nac.getMonth() > fecha_actual.getMonth()){
+                alert("La fecha de nacimiento debe ser menor a la fecha actual");
+                return false;
+            }
+            if(fecha_nac.getMonth() == fecha_actual.getMonth()){
+                if(!(fecha_nac.getDate()+1 < fecha_actual.getDate())){
+                    alert("La fecha de nacimiento debe ser menor a la fecha actual");
+                    return false;
+                }
+                                    
+            }
         }
     }
     else{
@@ -186,11 +201,27 @@ function validaDatos(){
     if(document.getElementById("fecha_titulo").value != ""){
         var fecha_titulo = new Date(document.getElementById("fecha_titulo").value);
 
-        if(!(fecha_titulo.getFullYear() <= fecha_actual.getFullYear() && fecha_titulo.getMonth() <= fecha_actual.getMonth() &&
-            fecha_titulo.getDate() +1 < fecha_actual.getDate())){
+        if(fecha_titulo.getFullYear() > fecha_actual.getFullYear()){
             document.getElementById("fecha_titulo").focus();
             alert("La fecha de titulación debe ser menor a la fecha actual");
             return false;
+        }
+        
+        if(fecha_titulo.getFullYear() == fecha_actual.getFullYear()){
+
+            if(fecha_titulo.getMonth() > fecha_actual.getMonth()){
+                document.getElementById("fecha_titulo").focus();
+                alert("La fecha de titulación debe ser menor a la fecha actual");
+                return false;
+            }
+            if(fecha_titulo.getMonth() == fecha_actual.getMonth()){
+                if(!(fecha_titulo.getDate()+1 < fecha_actual.getDate())){
+                    document.getElementById("fecha_titulo").focus();
+                    alert("La fecha de titulación debe ser menor a la fecha actual");
+                    return false;
+                }
+                                    
+            }
         }
     }
     else{
